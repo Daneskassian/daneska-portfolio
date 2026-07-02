@@ -326,11 +326,15 @@ button, input, textarea {
 
 .home__content {
     grid-template-columns: .5fr 3fr;
+    grid-template-areas:
+        "social img"
+        "data data";
     align-items: center;
     column-gap: .5rem;
 }
 
 .home__social {
+    grid-area: social;
     display: grid;
     grid-template-columns: max-content;
     row-gap: 1rem;
@@ -352,6 +356,7 @@ button, input, textarea {
 }
 
 .home__img {
+    grid-area: img;
     width: 200px;
     height: 200px;
     background-color: var(--first-color-lighter);
@@ -370,7 +375,7 @@ button, input, textarea {
 }
 
 .home__data {
-    grid-column: 1 / 3;
+    grid-area: data;
 }
 
 .home__title {
@@ -1061,16 +1066,13 @@ button, input, textarea {
 /* For medium devices */
 @media screen and (min-width: 568px) {
     .home__content {
-        grid-template-columns: max-content 1fr;
-    }
-
-    .home__data {
-        grid-column: initial;
+        grid-template-columns: max-content max-content 1fr;
+        grid-template-areas: "social img data";
+        column-gap: 2rem;
     }
 
     .home__img {
-        order: 1;
-        justify-self: center;
+        justify-self: start;
         width: 220px;
         height: 220px;
     }
